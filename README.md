@@ -1,6 +1,6 @@
 # Viraj & Hamza
 
-Working website for **A-Level Science Tutors | Medical Admissions Mentors**.
+Working website for **GCSE and A-level Science | Medical Admissions**.
 
 This is a static site designed for free hosting with GitHub Pages. The enquiry form is deliberately inactive until the final venture name and contact address are agreed.
 
@@ -11,4 +11,3 @@ This is a static site designed for free hosting with GitHub Pages. The enquiry f
 - Confirm the final venture name and contact address.
 - Connect the enquiry form.
 - Add privacy information covering the final enquiry process.
-

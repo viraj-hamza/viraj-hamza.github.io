@@ -3,7 +3,7 @@ const status = document.querySelector('#form-status');
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();
-  status.textContent = 'Draft only — enquiries will be enabled when the contact address is agreed.';
+  status.textContent = 'Draft only. Enquiries will be enabled when the contact address is agreed.';
 });
 
 const testimonialTrack = document.querySelector('#testimonial-track');
@@ -21,7 +21,7 @@ const updateTestimonialControls = () => {
   testimonialIndex = Math.min(testimonialIndex, finalIndex);
   testimonialPrev.disabled = testimonialIndex === 0;
   testimonialNext.disabled = testimonialIndex === finalIndex;
-  testimonialPosition.textContent = `Showing ${testimonialIndex + 1}–${Math.min(testimonialIndex + visible, testimonialCards.length)} of ${testimonialCards.length}`;
+  testimonialPosition.textContent = `Showing ${testimonialIndex + 1} to ${Math.min(testimonialIndex + visible, testimonialCards.length)} of ${testimonialCards.length}`;
 };
 
 const showTestimonial = (index) => {
