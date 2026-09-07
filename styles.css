@@ -66,7 +66,6 @@ h1 em { color: var(--blue); font-weight: 500; }
 .service-card.gcse { border-top-color: #80672d; }
 .service-card.biology { border-top-color: #14847b; }
 .service-card.admissions { border-top-color: var(--ink); }
-.service-index { color: var(--muted); font-size: .78rem; font-weight: 800; }
 .service-card h3 { margin-bottom: 2px; font-size: 1.85rem; font-weight: 600; letter-spacing: -.03em; }
 .service-tutor { margin-bottom: 24px; color: var(--blue); font-weight: 800; }
 .service-card ul { margin: 24px 0 0; padding-left: 20px; }
@@ -80,25 +79,25 @@ h1 em { color: var(--blue); font-weight: 500; }
 .admissions-oversight p { margin: 8px 0 0; color: #dbe3f0; font-size: .8rem; line-height: 1.45; }
 
 .tutors-section { background: white; }
-.tutor-grid { display: grid; gap: 34px; }
-.tutor-card { display: grid; grid-template-columns: 330px 1fr; overflow: hidden; background: var(--cream); border: 1px solid var(--line); border-radius: 4px; box-shadow: var(--shadow); }
-.portrait-wrap { min-height: 560px; overflow: hidden; background: #dce3ee; }
+.tutor-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; align-items: stretch; }
+.tutor-card { display: flex; flex-direction: column; height: 100%; overflow: hidden; background: var(--cream); border: 1px solid var(--line); border-radius: 4px; box-shadow: var(--shadow); }
+.portrait-wrap { height: 410px; min-height: 410px; overflow: hidden; background: #dce3ee; }
 .portrait-wrap img { width: 100%; height: 100%; object-fit: cover; }
 .portrait-wrap.viraj img { object-position: center 35%; }
 .portrait-wrap.hamza { display: flex; align-items: flex-end; background: #e9edf3; }
-.portrait-wrap.hamza img { height: auto; object-fit: contain; }
-.tutor-content { align-self: center; padding: 44px; }
+.portrait-wrap.hamza img { width: 100%; height: 100%; object-fit: contain; object-position: center bottom; }
+.tutor-content { display: flex; flex: 1; flex-direction: column; padding: 34px; }
 .tutor-content h3 { margin-bottom: 18px; font-size: 2.5rem; font-weight: 600; line-height: 1.05; letter-spacing: -.04em; }
 .tutor-content > p:not(.tutor-subject):not(.draft-copy) { color: #41506a; }
 .tutor-subject { margin-bottom: 8px; color: var(--blue); font-size: .76rem; font-weight: 850; letter-spacing: .13em; text-transform: uppercase; }
-.credentials { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 26px; }
+.credentials { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; padding-top: 26px; }
 .credentials span { padding: 7px 11px; color: #24334d; background: white; border: 1px solid var(--line); border-radius: 3px; font-size: .77rem; font-weight: 750; }
 .draft-copy { padding: 14px 16px; color: #765309; background: #fff5cf; border-left: 4px solid #e0a600; font-size: .88rem; }
 
 .approach-section, .enquiry-section { color: white; background: var(--navy); }
 .section-heading.light .eyebrow { color: var(--cyan); }
 .section-heading.light > p:last-child { color: #b7c4da; }
-.method-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; margin: 0; padding: 0; list-style: none; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.12); border-radius: 4px; overflow: hidden; }
+.method-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px; margin: 0; padding: 0; list-style: none; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.12); border-radius: 4px; overflow: hidden; }
 .method-grid li { min-height: 290px; padding: 28px; background: #0d1c38; }
 .method-grid span { color: var(--cyan); font-weight: 850; }
 .method-grid h3 { margin: 38px 0 10px; font-size: 1.45rem; }
@@ -148,11 +147,16 @@ blockquote footer { display: grid; gap: 2px; color: var(--muted); font-size: .78
 blockquote footer strong { color: var(--ink); font-size: .82rem; }
 
 .pricing-section { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; background: white; }
-.price-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.price-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
 .price-cards article { display: flex; flex-direction: column; height: 100%; padding: 24px; background: var(--paper); border: 1px solid var(--line); border-radius: 4px; }
 .price-cards p { min-height: 78px; margin-bottom: 16px; font-weight: 800; line-height: 1.35; }
 .price-cards strong { display: block; color: var(--blue); font-size: 3rem; line-height: 1; }
 .price-cards span { color: var(--muted); font-size: .8rem; }
+.price-cards small { margin-top: 8px; color: var(--cyan); font-size: .72rem; font-weight: 800; }
+.price-cards .bundle-price { color: white; background: var(--navy); border-color: var(--navy); }
+.price-cards .bundle-price p { color: white; }
+.price-cards .bundle-price strong { color: var(--cyan); }
+.price-cards .bundle-price span { color: #c6d0e1; }
 .pricing-note { grid-column: 2; color: var(--muted); font-size: .84rem; }
 
 .enquiry-section { display: grid; grid-template-columns: .8fr 1.2fr; gap: 80px; }
@@ -177,10 +181,10 @@ input:focus, select:focus, textarea:focus { outline: 3px solid rgba(39,94,231,.1
   .proof-label { grid-column: 1 / -1; }
   .service-grid { grid-template-columns: 1fr; }
   .service-card { min-height: 0; }
-  .tutor-card { grid-template-columns: 280px 1fr; }
   .method-grid { grid-template-columns: 1fr 1fr; }
+  .method-grid li:last-child { grid-column: 1 / -1; min-height: 220px; }
   .progress-panel, .pricing-section, .enquiry-section { grid-template-columns: 1fr; }
-  .price-cards { grid-template-columns: repeat(3, 1fr); }
+  .price-cards { grid-template-columns: repeat(2, 1fr); }
   .pricing-note { grid-column: 1; }
 }
 
@@ -193,13 +197,14 @@ input:focus, select:focus, textarea:focus { outline: 3px solid rgba(39,94,231,.1
   .proof-label { grid-column: auto; }
   .trust-line { display: none; }
   .section { padding-block: 76px; }
-  .tutor-card { grid-template-columns: 1fr; }
+  .tutor-grid { grid-template-columns: 1fr; }
   .portrait-wrap { min-height: 390px; }
   .portrait-wrap.hamza { min-height: 430px; }
   .tutor-content { padding: 28px 23px 32px; }
   .tutor-content h3 { font-size: 2rem; }
   .method-grid { grid-template-columns: 1fr; }
   .method-grid li { min-height: 0; }
+  .method-grid li:last-child { grid-column: auto; min-height: 0; }
   .method-grid h3 { margin-top: 20px; }
   .progress-panel { padding: 24px; }
   .grade-journey { display: grid; grid-template-columns: 1fr; min-height: 0; }
