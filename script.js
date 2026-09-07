@@ -14,10 +14,6 @@ const testimonialPosition = document.querySelector('#testimonial-position');
 let testimonialIndex = 0;
 
 const updateTestimonialControls = () => {
-  const finalIndex = testimonialCards.length - 1;
-  testimonialIndex = Math.min(testimonialIndex, finalIndex);
-  testimonialPrev.disabled = testimonialIndex === 0;
-  testimonialNext.disabled = testimonialIndex === finalIndex;
   testimonialPosition.textContent = `Showing ${testimonialIndex + 1} of ${testimonialCards.length}`;
   testimonialCards.forEach((card, index) => {
     card.classList.toggle('active', index === testimonialIndex);
@@ -25,8 +21,7 @@ const updateTestimonialControls = () => {
 };
 
 const showTestimonial = (index) => {
-  const finalIndex = testimonialCards.length - 1;
-  testimonialIndex = Math.max(0, Math.min(index, finalIndex));
+  testimonialIndex = (index + testimonialCards.length) % testimonialCards.length;
   testimonialTrack.scrollTo({
     left: testimonialCards[testimonialIndex].offsetLeft - testimonialTrack.offsetLeft,
     behavior: 'smooth'
