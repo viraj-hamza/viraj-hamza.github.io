@@ -125,7 +125,7 @@ h1 em { color: var(--blue); font-weight: 500; }
 .testimonials-title .eyebrow { grid-column: 1 / -1; }
 .testimonials-title h2 { margin: 0; font-size: 2.7rem; letter-spacing: -.05em; }
 .draft-label { margin: 0; color: #80672d; font-size: .78rem; text-align: right; }
-.testimonial-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.testimonial-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
 blockquote { margin: 0; min-height: 250px; padding: 28px; background: white; border: 1px solid var(--line); border-top: 3px solid var(--blue); border-radius: 4px; }
 blockquote:nth-child(2) { border-top-color: #14847b; }
 blockquote.placeholder { background: rgba(255,255,255,.55); border: 1px dashed #aab5c8; }
