@@ -124,11 +124,20 @@ h1 em { color: var(--blue); font-weight: 500; }
 .testimonials-title { display: grid; grid-template-columns: 1fr 1fr; align-items: end; margin-bottom: 25px; }
 .testimonials-title .eyebrow { grid-column: 1 / -1; }
 .testimonials-title h2 { margin: 0; font-size: 2.7rem; letter-spacing: -.05em; }
+.testimonial-meta { display: grid; justify-items: end; gap: 12px; }
 .draft-label { margin: 0; color: #80672d; font-size: .78rem; text-align: right; }
-.testimonial-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
-blockquote { margin: 0; min-height: 250px; padding: 28px; background: white; border: 1px solid var(--line); border-top: 3px solid var(--blue); border-radius: 4px; }
+.testimonial-controls { display: flex; align-items: center; gap: 10px; }
+.testimonial-controls button { display: grid; width: 40px; height: 40px; place-items: center; color: var(--ink); background: white; border: 1px solid var(--line); border-radius: 50%; font: inherit; font-size: 1.15rem; font-weight: 800; cursor: pointer; }
+.testimonial-controls button:hover { color: white; background: var(--blue); border-color: var(--blue); }
+.testimonial-controls button:focus-visible { outline: 3px solid rgba(23,79,196,.22); outline-offset: 2px; }
+.testimonial-controls button:disabled { color: #9aa5b7; background: rgba(255,255,255,.55); cursor: default; }
+.testimonial-controls span { min-width: 104px; color: var(--muted); font-size: .75rem; font-weight: 750; text-align: center; }
+.testimonial-grid { display: flex; gap: 18px; overflow-x: auto; scroll-behavior: smooth; scroll-snap-type: x mandatory; scrollbar-width: none; }
+.testimonial-grid::-webkit-scrollbar { display: none; }
+blockquote { flex: 0 0 calc((100% - 18px) / 2); margin: 0; min-height: 250px; padding: 28px; background: white; border: 1px solid var(--line); border-top: 3px solid var(--blue); border-radius: 4px; scroll-snap-align: start; }
 blockquote:nth-child(2) { border-top-color: #14847b; }
 blockquote:nth-child(3) { border-top-color: var(--ink); }
+blockquote:nth-child(4) { border-top-color: #14847b; }
 blockquote.placeholder { background: rgba(255,255,255,.55); border: 1px dashed #aab5c8; }
 blockquote p { color: #3f4e68; font-family: "Iowan Old Style", Baskerville, Georgia, serif; font-size: 1.12rem; line-height: 1.55; }
 blockquote.placeholder p { color: #78859a; }
@@ -194,8 +203,10 @@ input:focus, select:focus, textarea:focus { outline: 3px solid rgba(39,94,231,.1
   .range-track { height: 20px; }
   .range-arrow { padding-left: 0; }
   .testimonials-title { grid-template-columns: 1fr; }
-  .draft-label { margin-top: 10px; text-align: left; }
-  .testimonial-grid, .price-cards, #draft-form { grid-template-columns: 1fr; }
+  .testimonial-meta { justify-items: start; margin-top: 10px; }
+  .draft-label { text-align: left; }
+  blockquote { flex-basis: 100%; }
+  .price-cards, #draft-form { grid-template-columns: 1fr; }
   #draft-form label:nth-of-type(4) { grid-column: auto; }
   .site-footer { grid-template-columns: 1fr; gap: 10px; }
 }

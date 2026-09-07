@@ -187,9 +187,16 @@
         <div class="testimonials-title">
           <p class="eyebrow">Student experiences</p>
           <h2>Testimonials</h2>
-          <p class="draft-label">Three student testimonials received — A-level Chemistry testimonial pending.</p>
+          <div class="testimonial-meta">
+            <p class="draft-label">Four student testimonials received — A-level Chemistry testimonial pending.</p>
+            <div class="testimonial-controls" aria-label="Testimonial navigation">
+              <button id="testimonial-prev" type="button" aria-label="Previous testimonial">←</button>
+              <span id="testimonial-position" aria-live="polite">Showing 1–2 of 5</span>
+              <button id="testimonial-next" type="button" aria-label="Next testimonial">→</button>
+            </div>
+          </div>
         </div>
-        <div class="testimonial-grid">
+        <div class="testimonial-grid" id="testimonial-track" tabindex="0" aria-label="Student testimonials">
           <blockquote class="testimonial verified">
             <p>“Hamza was an excellent tutor. The way he tutored helped me understand not just the content, but also how to approach questions and understand the mark scheme, which was a major factor in helping me achieve an A* in A-level Biology.”</p>
             <footer><strong>A-level Biology student</strong><span>Achieved A*</span></footer>
@@ -201,6 +208,10 @@
           <blockquote class="testimonial verified">
             <p>“Viraj’s mock interview was really useful in helping me understand the Cambridge interview style and how it is conducted. It gave me a much clearer idea of what to expect and how to approach the interview. His guidance helped me feel more prepared, and I went on to receive an offer from Girton College, Cambridge. I’m very grateful for all his help.”</p>
             <footer><strong>Shlok · Successful Cambridge applicant</strong><span>Received a Cambridge offer</span></footer>
+          </blockquote>
+          <blockquote class="testimonial verified">
+            <p>“Hamza was an immense and much-needed help when revising GCSE and A-level subject content and mark schemes, explaining things simply, efficiently and quickly. His tutoring was a main contributor to my Grade 9s in GCSE Physics and Biology. He continues to support me with A-level Biology and has also helped me massively with my UCAT revision.”</p>
+            <footer><strong>GCSE and A-level student</strong><span>Grade 9s in Physics and Biology</span></footer>
           </blockquote>
           <blockquote class="testimonial placeholder">
             <p>A verified A-level Chemistry student testimonial will appear here before launch.</p>
