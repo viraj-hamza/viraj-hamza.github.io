@@ -1,6 +1,6 @@
 # Viraj & Hamza
 
-Working website for **GCSE and A-level Science | Medical Admissions**.
+Working website for **A-level Science Tutors | GCSE | Medical Admissions**.
 
 This is a static site designed for free hosting with GitHub Pages. The enquiry form is deliberately inactive until the final venture name and contact address are agreed.
 

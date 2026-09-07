@@ -136,10 +136,11 @@ h1 em { color: var(--blue); font-weight: 500; }
 .testimonial-controls span { min-width: 104px; color: var(--muted); font-size: .75rem; font-weight: 750; text-align: center; }
 .testimonial-grid { display: flex; gap: 18px; overflow-x: auto; scroll-behavior: smooth; scroll-snap-type: x mandatory; scrollbar-width: none; }
 .testimonial-grid::-webkit-scrollbar { display: none; }
-blockquote { flex: 0 0 calc((100% - 18px) / 2); margin: 0; min-height: 250px; padding: 28px; background: white; border: 1px solid var(--line); border-top: 3px solid var(--blue); border-radius: 4px; scroll-snap-align: start; }
-blockquote:nth-child(2) { border-top-color: #14847b; }
-blockquote:nth-child(3) { border-top-color: var(--ink); }
-blockquote:nth-child(4) { border-top-color: #14847b; }
+.testimonial-grid::after { content: ""; flex: 0 0 18%; }
+blockquote { flex: 0 0 82%; margin: 0; min-height: 250px; padding: 28px; opacity: .38; filter: blur(1.5px); transform: scale(.985); transform-origin: left center; background: white; border: 1px solid var(--line); border-top: 3px solid var(--blue); border-radius: 4px; scroll-snap-align: start; transition: opacity .25s ease, filter .25s ease, transform .25s ease; }
+blockquote.active { opacity: 1; filter: none; transform: none; }
+blockquote.testimonial-hamza { border-top-color: #14847b; }
+blockquote.testimonial-viraj { border-top-color: var(--blue); }
 blockquote.placeholder { background: rgba(255,255,255,.55); border: 1px dashed #aab5c8; }
 blockquote p { color: #3f4e68; font-family: "Iowan Old Style", Baskerville, Georgia, serif; font-size: 1.12rem; line-height: 1.55; }
 blockquote.placeholder p { color: #78859a; }
@@ -208,10 +209,14 @@ input:focus, select:focus, textarea:focus { outline: 3px solid rgba(39,94,231,.1
   .testimonials-title { grid-template-columns: 1fr; }
   .testimonial-meta { justify-items: start; margin-top: 10px; }
   .draft-label { text-align: left; }
-  blockquote { flex-basis: 100%; }
+  .testimonial-grid::after { flex-basis: 9%; }
+  blockquote { flex-basis: 91%; }
   .price-cards, #draft-form { grid-template-columns: 1fr; }
   #draft-form label:nth-of-type(4) { grid-column: auto; }
   .site-footer { grid-template-columns: 1fr; gap: 10px; }
 }
 
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+@media (prefers-reduced-motion: reduce) {
+  html, .testimonial-grid { scroll-behavior: auto; }
+  blockquote { transition: none; }
+}

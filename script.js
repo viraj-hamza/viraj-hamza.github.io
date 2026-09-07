@@ -13,19 +13,19 @@ const testimonialNext = document.querySelector('#testimonial-next');
 const testimonialPosition = document.querySelector('#testimonial-position');
 let testimonialIndex = 0;
 
-const visibleTestimonials = () => window.matchMedia('(max-width: 680px)').matches ? 1 : 2;
-
 const updateTestimonialControls = () => {
-  const visible = visibleTestimonials();
-  const finalIndex = Math.max(0, testimonialCards.length - visible);
+  const finalIndex = testimonialCards.length - 1;
   testimonialIndex = Math.min(testimonialIndex, finalIndex);
   testimonialPrev.disabled = testimonialIndex === 0;
   testimonialNext.disabled = testimonialIndex === finalIndex;
-  testimonialPosition.textContent = `Showing ${testimonialIndex + 1} to ${Math.min(testimonialIndex + visible, testimonialCards.length)} of ${testimonialCards.length}`;
+  testimonialPosition.textContent = `Showing ${testimonialIndex + 1} of ${testimonialCards.length}`;
+  testimonialCards.forEach((card, index) => {
+    card.classList.toggle('active', index === testimonialIndex);
+  });
 };
 
 const showTestimonial = (index) => {
-  const finalIndex = Math.max(0, testimonialCards.length - visibleTestimonials());
+  const finalIndex = testimonialCards.length - 1;
   testimonialIndex = Math.max(0, Math.min(index, finalIndex));
   testimonialTrack.scrollTo({
     left: testimonialCards[testimonialIndex].offsetLeft - testimonialTrack.offsetLeft,
@@ -36,6 +36,21 @@ const showTestimonial = (index) => {
 
 testimonialPrev.addEventListener('click', () => showTestimonial(testimonialIndex - 1));
 testimonialNext.addEventListener('click', () => showTestimonial(testimonialIndex + 1));
+
+let testimonialScrollTimer;
+testimonialTrack.addEventListener('scroll', () => {
+  window.clearTimeout(testimonialScrollTimer);
+  testimonialScrollTimer = window.setTimeout(() => {
+    const trackLeft = testimonialTrack.offsetLeft + testimonialTrack.scrollLeft;
+    const closestIndex = testimonialCards.reduce((closest, card, index) => {
+      const currentDistance = Math.abs(card.offsetLeft - trackLeft);
+      const closestDistance = Math.abs(testimonialCards[closest].offsetLeft - trackLeft);
+      return currentDistance < closestDistance ? index : closest;
+    }, 0);
+    testimonialIndex = closestIndex;
+    updateTestimonialControls();
+  }, 100);
+});
 
 window.addEventListener('resize', () => showTestimonial(testimonialIndex));
 updateTestimonialControls();
