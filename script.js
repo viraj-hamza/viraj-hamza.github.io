@@ -27,7 +27,7 @@ window.addEventListener('resize', () => {
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();
-  status.textContent = 'Draft only. Enquiries will be enabled when the contact address is agreed.';
+  status.textContent = 'Draft only. The contact form will be enabled when the contact address is agreed.';
 });
 
 const testimonialTrack = document.querySelector('#testimonial-track');
