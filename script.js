@@ -1,5 +1,29 @@
 const form = document.querySelector('#draft-form');
 const status = document.querySelector('#form-status');
+const menuToggle = document.querySelector('.menu-toggle');
+const mobileMenu = document.querySelector('#mobile-menu');
+
+const setMenuOpen = (open) => {
+  menuToggle.setAttribute('aria-expanded', String(open));
+  menuToggle.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+  mobileMenu.hidden = !open;
+};
+
+menuToggle.addEventListener('click', () => {
+  setMenuOpen(menuToggle.getAttribute('aria-expanded') !== 'true');
+});
+
+mobileMenu.querySelectorAll('a').forEach((link) => {
+  link.addEventListener('click', () => setMenuOpen(false));
+});
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') setMenuOpen(false);
+});
+
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 940) setMenuOpen(false);
+});
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();
