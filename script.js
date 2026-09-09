@@ -35,7 +35,9 @@ const testimonialCards = [...testimonialTrack.querySelectorAll('.testimonial')];
 const testimonialPrev = document.querySelector('#testimonial-prev');
 const testimonialNext = document.querySelector('#testimonial-next');
 const testimonialPosition = document.querySelector('#testimonial-position');
+const testimonialsBlock = document.querySelector('.testimonials-block');
 let testimonialIndex = 0;
+let testimonialAutoplay;
 
 const updateTestimonialControls = () => {
   testimonialPosition.textContent = `Showing ${testimonialIndex + 1} of ${testimonialCards.length}`;
@@ -53,8 +55,34 @@ const showTestimonial = (index) => {
   updateTestimonialControls();
 };
 
-testimonialPrev.addEventListener('click', () => showTestimonial(testimonialIndex - 1));
-testimonialNext.addEventListener('click', () => showTestimonial(testimonialIndex + 1));
+const stopTestimonialAutoplay = () => {
+  window.clearInterval(testimonialAutoplay);
+};
+
+const startTestimonialAutoplay = () => {
+  stopTestimonialAutoplay();
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  testimonialAutoplay = window.setInterval(() => {
+    if (!document.hidden) showTestimonial(testimonialIndex + 1);
+  }, 10000);
+};
+
+const moveTestimonialManually = (change) => {
+  showTestimonial(testimonialIndex + change);
+  startTestimonialAutoplay();
+};
+
+testimonialPrev.addEventListener('click', () => moveTestimonialManually(-1));
+testimonialNext.addEventListener('click', () => moveTestimonialManually(1));
+
+testimonialsBlock.addEventListener('mouseenter', stopTestimonialAutoplay);
+testimonialsBlock.addEventListener('mouseleave', startTestimonialAutoplay);
+testimonialsBlock.addEventListener('focusin', stopTestimonialAutoplay);
+testimonialsBlock.addEventListener('focusout', (event) => {
+  if (!testimonialsBlock.contains(event.relatedTarget)) startTestimonialAutoplay();
+});
+testimonialTrack.addEventListener('pointerdown', stopTestimonialAutoplay);
+testimonialTrack.addEventListener('pointerup', startTestimonialAutoplay);
 
 let testimonialScrollTimer;
 testimonialTrack.addEventListener('scroll', () => {
@@ -73,3 +101,4 @@ testimonialTrack.addEventListener('scroll', () => {
 
 window.addEventListener('resize', () => showTestimonial(testimonialIndex));
 updateTestimonialControls();
+startTestimonialAutoplay();
