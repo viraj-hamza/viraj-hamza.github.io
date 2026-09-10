@@ -94,7 +94,7 @@ h1 em { color: var(--blue); font-weight: 500; }
 .portrait-wrap img { width: 100%; height: 100%; object-fit: cover; }
 .portrait-wrap.viraj img { object-position: center 18%; }
 .portrait-wrap.hamza { display: flex; align-items: flex-end; background: #e9edf3; }
-.portrait-wrap.hamza img { width: 100%; height: 100%; object-fit: contain; object-position: center bottom; }
+.portrait-wrap.hamza img { width: 100%; height: 100%; object-fit: cover; object-position: center 18%; }
 .tutor-content { display: flex; flex: 1; flex-direction: column; padding: 34px; }
 .tutor-content h3 { margin-bottom: 18px; font-size: 2.5rem; font-weight: 600; line-height: 1.05; letter-spacing: -.04em; }
 .tutor-content > p:not(.tutor-subject):not(.draft-copy) { color: #41506a; }
