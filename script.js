@@ -25,22 +25,35 @@ window.addEventListener('resize', () => {
   if (window.innerWidth > 940) setMenuOpen(false);
 });
 
-form.addEventListener('submit', (event) => {
+form.addEventListener('submit', async (event) => {
   event.preventDefault();
-  const data = new FormData(form);
-  const service = data.get('service');
-  const subject = `Tuition enquiry: ${service}`;
-  const body = [
-    `Name: ${data.get('name')}`,
-    `Email: ${data.get('email')}`,
-    `Support required: ${service}`,
-    '',
-    'Current situation:',
-    data.get('message')
-  ].join('\n');
+  const button = form.querySelector('button[type="submit"]');
+  const data = Object.fromEntries(new FormData(form).entries());
 
-  status.textContent = 'Opening your email app…';
-  window.location.href = `mailto:vnhtutors@outlook.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  button.disabled = true;
+  button.textContent = 'Sending…';
+  status.textContent = '';
+
+  try {
+    const response = await fetch('https://formsubmit.co/ajax/vnhtutors@outlook.com', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json'
+      },
+      body: JSON.stringify(data)
+    });
+
+    if (!response.ok) throw new Error('Submission failed');
+
+    form.reset();
+    status.textContent = 'Thank you. Your enquiry has been sent and we will be in touch.';
+  } catch (error) {
+    status.textContent = 'We could not send your enquiry. Please email vnhtutors@outlook.com directly.';
+  } finally {
+    button.disabled = false;
+    button.textContent = 'Send message';
+  }
 });
 
 const testimonialTrack = document.querySelector('#testimonial-track');

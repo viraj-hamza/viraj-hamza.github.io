@@ -87,8 +87,8 @@
         </article>
         <article class="service-card biology">
           <h3>A-level Biology</h3>
-          <p class="service-tutor">led by Hamza</p>
-          <p>Help understanding the content, applying it to unfamiliar questions and writing answers that meet the mark scheme.</p>
+          <p class="service-tutor">with Hamza</p>
+          <p>Hamza leads our A-level Biology teaching, helping students understand the content, apply it to unfamiliar questions and write answers that meet the mark scheme.</p>
           <ul>
             <li>AQA, OCR and Edexcel</li>
             <li>Year 12 and Year 13</li>
@@ -262,14 +262,18 @@
         <p>Send us a few details and we will get back to you to arrange a free 15-minute call.</p>
         <a class="contact-email" href="mailto:vnhtutors@outlook.com">vnhtutors@outlook.com</a>
       </div>
-      <form id="enquiry-form">
+      <form id="enquiry-form" action="https://formsubmit.co/vnhtutors@outlook.com" method="POST">
+        <input type="hidden" name="_subject" value="New V&amp;H tuition enquiry">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <input class="form-honeypot" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
         <label>Parent or student name<input type="text" name="name" autocomplete="name" required></label>
         <label>Email address<input type="email" name="email" autocomplete="email" required></label>
         <label>Support required<select name="service" required><option value="">Choose one</option><option>A-level Biology</option><option>A-level Chemistry</option><option>A-level Biology and Chemistry weekly</option><option>GCSE Science</option><option>UCAT preparation</option><option>Personal statement review</option><option>Medical school interviews</option></select></label>
         <label>Current situation<textarea name="message" rows="4" placeholder="Year group, exam board, current grade and what you would like help with" required></textarea></label>
         <button class="button primary" type="submit">Send message</button>
         <p class="form-status" id="form-status" aria-live="polite"></p>
-        <p class="form-note">This opens a prepared message in your email app. Enquiries are not stored on this website.</p>
+        <p class="form-note">Your details will only be used to respond to your enquiry.</p>
       </form>
     </section>
   </main>
