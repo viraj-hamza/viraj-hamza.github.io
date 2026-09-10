@@ -1,4 +1,4 @@
-const form = document.querySelector('#draft-form');
+const form = document.querySelector('#enquiry-form');
 const status = document.querySelector('#form-status');
 const menuToggle = document.querySelector('.menu-toggle');
 const mobileMenu = document.querySelector('#mobile-menu');
@@ -27,7 +27,20 @@ window.addEventListener('resize', () => {
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();
-  status.textContent = 'Draft only. The contact form will be enabled when the contact address is agreed.';
+  const data = new FormData(form);
+  const service = data.get('service');
+  const subject = `Tuition enquiry: ${service}`;
+  const body = [
+    `Name: ${data.get('name')}`,
+    `Email: ${data.get('email')}`,
+    `Support required: ${service}`,
+    '',
+    'Current situation:',
+    data.get('message')
+  ].join('\n');
+
+  status.textContent = 'Opening your email app…';
+  window.location.href = `mailto:vnhtutors@outlook.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 });
 
 const testimonialTrack = document.querySelector('#testimonial-track');

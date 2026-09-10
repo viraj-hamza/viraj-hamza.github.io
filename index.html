@@ -208,7 +208,6 @@
           <p class="eyebrow">Student experiences</p>
           <h2>Testimonials</h2>
           <div class="testimonial-meta">
-            <p class="draft-label">Five student testimonials received.</p>
             <div class="testimonial-controls" aria-label="Testimonial navigation">
               <button id="testimonial-prev" type="button" aria-label="Previous testimonial">←</button>
               <span id="testimonial-position" aria-live="polite">Showing 1 of 5</span>
@@ -259,15 +258,17 @@
       <div class="section-heading light">
         <p class="eyebrow">Get in touch</p>
         <h2>Tell us what help you are looking for</h2>
-        <p>The form will be connected once our contact address has been agreed.</p>
+        <p>Send us a few details and we will get back to you to arrange a free 15-minute call.</p>
+        <a class="contact-email" href="mailto:vnhtutors@outlook.com">vnhtutors@outlook.com</a>
       </div>
-      <form id="draft-form">
+      <form id="enquiry-form">
         <label>Parent or student name<input type="text" name="name" autocomplete="name" required></label>
         <label>Email address<input type="email" name="email" autocomplete="email" required></label>
         <label>Support required<select name="service" required><option value="">Choose one</option><option>A-level Biology</option><option>A-level Chemistry</option><option>A-level Biology and Chemistry weekly</option><option>GCSE Science</option><option>UCAT preparation</option><option>Medical school interviews</option></select></label>
-        <label>Current situation<textarea name="message" rows="4" placeholder="Year group, exam board, current grade and what you would like help with"></textarea></label>
+        <label>Current situation<textarea name="message" rows="4" placeholder="Year group, exam board, current grade and what you would like help with" required></textarea></label>
         <button class="button primary" type="submit">Send message</button>
         <p class="form-status" id="form-status" aria-live="polite"></p>
+        <p class="form-note">This opens a prepared message in your email app. Enquiries are not stored on this website.</p>
       </form>
     </section>
   </main>
@@ -275,7 +276,7 @@
   <footer class="site-footer">
     <div><strong>Viraj &amp; Hamza</strong><span>A-level Science Tutors | GCSE | Medical Admissions</span></div>
     <p>Online tuition across the United Kingdom</p>
-    <p class="draft-footer">Working draft. Not for public advertising.</p>
+    <a href="mailto:vnhtutors@outlook.com">vnhtutors@outlook.com</a>
   </footer>
   <script src="script.js"></script>
 </body>
