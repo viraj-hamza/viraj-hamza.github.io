@@ -20,7 +20,7 @@ a { color: inherit; }
 
 .site-header { position: sticky; top: 0; z-index: 20; display: flex; align-items: center; justify-content: space-between; padding: 15px max(24px, calc((100vw - 1180px) / 2)); background: rgba(255,255,255,.94); border-bottom: 1px solid var(--line); backdrop-filter: blur(16px); }
 .wordmark { display: flex; align-items: center; gap: 14px; text-decoration: none; }
-.wordmark-logo { flex: 0 0 58px; width: 58px; height: 58px; overflow: hidden; border-radius: 50%; }
+.wordmark-logo { flex: 0 0 73px; width: 73px; height: 73px; overflow: hidden; border-radius: 50%; }
 .wordmark-logo img { width: 113.5%; max-width: none; height: 113.5%; transform: translate(-5.95%, -5.95%); }
 .wordmark small { max-width: 190px; color: var(--muted); font-size: .69rem; font-weight: 700; line-height: 1.2; letter-spacing: .04em; text-transform: uppercase; }
 nav { display: flex; align-items: center; gap: 24px; }
@@ -201,7 +201,7 @@ input:focus, select:focus, textarea:focus { outline: 3px solid rgba(39,94,231,.1
 
 @media (max-width: 680px) {
   .wordmark small { display: none; }
-  .wordmark-logo { flex-basis: 50px; width: 50px; height: 50px; }
+  .wordmark-logo { flex-basis: 63px; width: 63px; height: 63px; }
   .site-header { padding-block: 12px; }
   .hero { gap: 42px; padding-top: 65px; background-image: radial-gradient(circle at 100% 58%, rgba(23,79,196,.10), transparent 48%); }
   .hero::after { display: none; }
