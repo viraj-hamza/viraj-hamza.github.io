@@ -167,7 +167,7 @@ blockquote footer strong { color: var(--ink); font-size: .82rem; }
 .enquiry-section { display: grid; grid-template-columns: .8fr 1.2fr; gap: 80px; }
 #enquiry-form { display: grid; grid-template-columns: 1fr 1fr; gap: 17px; padding: 30px; color: var(--ink); background: white; border-radius: 4px; }
 #enquiry-form label { display: grid; gap: 7px; font-size: .8rem; font-weight: 800; }
-#enquiry-form label:nth-of-type(4) { grid-column: 1 / -1; }
+#enquiry-form label:nth-of-type(5) { grid-column: 1 / -1; }
 input, select, textarea { width: 100%; padding: 13px 14px; color: var(--ink); background: #f8faff; border: 1px solid #cfd8e7; border-radius: 3px; font: inherit; font-size: .93rem; }
 input:focus, select:focus, textarea:focus { outline: 3px solid rgba(39,94,231,.18); border-color: var(--blue); }
 #enquiry-form button { justify-self: start; }
@@ -228,7 +228,7 @@ input:focus, select:focus, textarea:focus { outline: 3px solid rgba(39,94,231,.1
   .testimonial-grid::after { flex-basis: 9%; }
   blockquote { flex-basis: 91%; }
   .price-cards, #enquiry-form { grid-template-columns: 1fr; }
-  #enquiry-form label:nth-of-type(4) { grid-column: auto; }
+  #enquiry-form label:nth-of-type(5) { grid-column: auto; }
   .site-footer { grid-template-columns: 1fr; gap: 10px; }
 }
 
